@@ -1,0 +1,6 @@
+{
+  "name": "Aura LMS",
+  "description": "Production-ready Online Course & Learning Management System (LMS)",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

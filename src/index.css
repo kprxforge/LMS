@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-color: #FFFDF5;
+  --text-color: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --card-white: #FFFFFF;
+  --card-red: #FF6B6B;
+  --card-yellow: #FFD93D;
+  --card-purple: #C4B5FD;
+  --border-color: #000000;
+  --shadow-color: #000000;
+}
+
+.dark {
+  --bg-color: #0B0B0B;
+  --text-color: #FFFFFF;
+  --text-secondary: #CFCFCF;
+  --card-white: #1F1F1F;
+  --card-red: #FF6B6B;
+  --card-yellow: #FFD93D;
+  --card-purple: #B8A1FF;
+  --border-color: #333333;
+  --shadow-color: #222222;
+}
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-background: var(--bg-color);
+  --color-foreground: var(--text-color);
+  
+  /* Overriding standard white and black to use our theme colors */
+  --color-white: var(--card-white);
+  --color-black: var(--text-color);
+  
+  --color-neo-accent: var(--card-red);
+  --color-neo-secondary: var(--card-yellow);
+  --color-neo-muted: var(--card-purple);
+
+  --color-border: var(--border-color);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply font-sans relative min-h-screen overflow-x-hidden transition-colors duration-500;
+  }
+}
+
+@layer utilities {
+  .neo-shadow {
+    box-shadow: 8px 8px 0px 0px var(--shadow-color);
+  }
+  .neo-shadow-sm {
+    box-shadow: 4px 4px 0px 0px var(--shadow-color);
+  }
+  .neo-shadow-lg {
+    box-shadow: 12px 12px 0px 0px var(--shadow-color);
+  }
+  .neo-shadow-xl {
+    box-shadow: 16px 16px 0px 0px var(--shadow-color);
+  }
+  
+  /* Text Shadows */
+  .neo-text-shadow {
+    text-shadow: 4px 4px 0px var(--shadow-color);
+  }
+  
+  /* Background Patterns */
+  .bg-halftone {
+    background-image: radial-gradient(var(--shadow-color) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, color-mix(in srgb, var(--shadow-color) 10%, transparent) 2px, transparent 2px),
+                      linear-gradient(to bottom, color-mix(in srgb, var(--shadow-color) 10%, transparent) 2px, transparent 2px);
+  }
+}
