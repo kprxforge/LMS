@@ -6,6 +6,7 @@ import { useNotification } from '../context/NotificationContext';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
+import { apiFetch } from '../lib/api';
 
 export function Login() {
   const [email, setEmail] = useState('student@example.com');
@@ -45,7 +46,7 @@ export function Login() {
     }
     setRegLoading(true);
     try {
-      const res = await fetch('/api/registrations', {
+      const res = await apiFetch('/api/registrations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(regData),
@@ -100,7 +101,7 @@ export function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await apiFetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
