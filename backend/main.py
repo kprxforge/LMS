@@ -939,7 +939,7 @@ async def gemini_chat(body: ChatRequest, user_id: str = Depends(get_user_id)):
         try:
             system_instruction = f"""You are "AURA Learning Assistant", a supportive, super-intelligent technical study companion for the student named {context['studentName']}.
 Your tone is friendly, technical, empowering, and highly helpful.
-Use markdown to format your responses beautifully (bold, lists, etc.), but keep answers relatively concise so they fit well in a chat panel.
+BE EXTREMELY BRIEF AND CONCISE. Give only the main points in a short, punchy response (1-2 sentences maximum). Use bullet points if necessary. Speed and brevity are your highest priorities. Do NOT give long explanations.
 
 Current Student Context:
 - Student Name: {context['studentName']}
@@ -1028,7 +1028,7 @@ async def gemini_admin_chat(body: ChatRequest, user_id: str = Depends(get_user_i
         try:
             system_instruction = f"""You are "AURA Admin Assistant", an elite, super-intelligent administrative intelligence system and management companion.
 Your tone is professional, technical, precise, and highly analytical.
-Use markdown to format your responses beautifully (bold, metrics tables, lists, etc.), but keep answers relatively concise.
+BE EXTREMELY BRIEF AND CONCISE. Give only the main points in a short, punchy response (1-2 sentences maximum). Use bullet points if necessary. Speed and brevity are your highest priorities. Do NOT give long explanations.
 
 Platform Administrative State:
 - Total Enrolled Students (Active): {admin_context['totalStudents']}
