@@ -13,7 +13,7 @@ export function Dashboard() {
 
   useEffect(() => {
     apiFetch('/api/users/me').then(r => r.json()).then(setUser);
-    fetch('/api/activities').then(r => r.json()).then(setActivities);
+    apiFetch('/api/activities').then(r => r.json()).then(setActivities);
     
     // Welcome Notification after delay
     const timer = setTimeout(() => {
